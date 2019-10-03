@@ -23,10 +23,12 @@ ActiveRecord::Schema.define(version: 3) do
 
   create_table "ninjas", force: :cascade do |t|
     t.string "name"
+    t.string "password"
     t.string "clan"
     t.string "village"
     t.string "rank"
     t.string "status"
+    t.integer "bank"
   end
 
   create_table "requesters", force: :cascade do |t|

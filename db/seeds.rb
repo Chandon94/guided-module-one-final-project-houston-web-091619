@@ -7,55 +7,66 @@ Mission.destroy_all
 
  kakashi = Ninja.create({
     name: 'Kakashi Hatake', 
+    password: "admin",
     clan: 'Hatake Clan', 
     village: 'Konohagakure', 
     rank: 'Jōnin',
-    status: 'Alive'
+    status: 'Alive', 
+    bank: 0
  })
 
  dan = Ninja.create({
-    name: 'Dan Katō', 
+    name: 'Dan Katō',
+    password: "admin", 
     clan: 'Yamanaka', 
     village: 'Konohagakure', 
     rank: 'Jōnin',
-    status: 'Death'
+    status: 'Death',
+    bank: 0
  })
 
  sasori = Ninja.create({
-    name: 'Sasori', 
-    clan: "", 
+    name: 'Sasori',
+    password: "admin", 
+    clan: nil, 
     village: 'Sunagakure', 
     rank: 'Kage',
-    status: 'Death'
+    status: 'Death',
+    bank: 0
  })
 
  danzo = Ninja.create({
     name: 'Danzō Shimura', 
+    password: "admin",
     clan: 'Shimura Clan', 
     village: 'Konohagakure', 
     rank: 'Jōnin',
-    status: 'Death'
+    status: 'Death',
+    bank: 0
  })
 
  asuma = Ninja.create({
     name: 'Asuma Sarutobi', 
+    password: "admin",
     clan: 'Sarutobi Clan', 
     village: 'Konohagakure', 
     rank: 'Jōnin',
-    status: 'Alive'
+    status: 'Alive',
+    bank: 0
  })
 
 # Requester
 
+
 admin = Requester.create({
-    name: 'admin',
+    name: 'admin', 
     password: "admin",
     village: 'Sunagakure', 
-    funds: 5000
+    funds: 10000
  })
 
 ichigo = Requester.create({
-    name: 'Ichigo Kurosaki',
+    name: 'Ichigo Kurosaki', 
     password: "admin",
     village: 'Sunagakure', 
     funds: 500
@@ -64,21 +75,21 @@ ichigo = Requester.create({
  orihime = Requester.create({
     name: 'Orihime Inoue', 
     password: "admin",
-    village: 'Konohagakure',
+    village: 'Konohagakure', 
     funds: 5000
  })
 
  renji = Requester.create({
     name: 'Renji Abarai', 
     password: "admin",
-    village: 'Otogakure',
+    village: 'Otogakure', 
     funds: 700
  })
 
  rukia = Requester.create({
     name: 'Rukia Kuchiki', 
     password: "admin",
-    village: 'Konohagakure',
+    village: 'Konohagakure', 
     funds: 2000
  })
 
@@ -136,3 +147,6 @@ clash = Mission.create({
     ninja_id: kakashi.id, 
     requester_id: uryu.id
  })
+
+
+ 
