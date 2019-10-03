@@ -67,16 +67,22 @@ while
     end
 
     if requesters_response == "Create A Mission!"
+        
         title = prompt.ask("What's the title of the mission?")
+        while title == nil
+            title = prompt.ask("Please assign a title!")
+        end
+
         tier = prompt.ask("Set the level of difficulty")
         cost = prompt.ask("How much cash are you willing to provide?")
-        status = "Default"
+        status = "Pending"
         prompt.say('Choose a Ninja!')
-        # ninjas = []
-        # puts  Ninja.all.each do |name|
-        #     name.push(ninja.name)
-        # end
-        # ninjas
+
+        ninjas_hash = {}
+        Ninja.all.each do |ninja|
+           ninjas_hash[ninja.name] = ninja.id
+       end
+       ninja_id = prompt.select("Choose a Ninja!", ninjas_hash)
 
         current_requester = Mission.create({
             title: title,
@@ -86,5 +92,10 @@ while
             ninja_id: ninja_id,
             requester_id: current_requester.id
         })
+    end
+
+        
+        
+        
     end
 end
