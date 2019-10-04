@@ -61,7 +61,7 @@ while user == nil
                 bank: bank
             })
 
-            puts a.asciify("Account Succesfully Created")
+            puts a.asciify("Account Successfully Created")
 
         end        
 
@@ -134,7 +134,7 @@ while user == nil
                     ninja.id == current_ninja.id
                 end
 
-                puts a.asciify("Current Balnce is $#{current_ninja_id.bank}")
+                puts a.asciify("Current Balance is $#{current_ninja_id.bank}")
 
              end #end of Check My Available Balance
 
@@ -166,7 +166,7 @@ while user == nil
                 funds: funds
             })
 
-            puts a.asciify("Account Succesfully Created")
+            puts a.asciify("Account Successfully Created")
 
         end        
 
@@ -266,7 +266,7 @@ while user == nil
                 pay_nin = nin.bank + cost
                 nin.update(bank: pay_nin)
 
-                puts a.asciify("Mission succesfuly created")
+                puts a.asciify("Mission successfuly created")
         
         
             end #create a mission end
@@ -287,50 +287,32 @@ while user == nil
 
             end # See list of all aviable nijas end
            
+
             if user_response == "Check Status Of My Current Missions."
                 
-                
-                mission_hash_requester = {}
-                
-                mission_array_requester = current_requester.missions.map do |mission|
-                    mission.title
-                end 
+            
+                if current_requester.missions == []
 
-                selected_mission = prompt.select("Choose the mission to see the current status", mission_array_requester)
+                    puts a.asciify("You have no missions")
 
-                requester_mission_instance = Mission.find_by(title: selected_mission)
-
-                puts a.asciify("#{requester_mission_instance.status}")
-
-                print requester_mission_instance.status
-
-                # binding.pry
-
-                # base on the name of the mission find the status of the missiona and print it
-
-                
-                # *************************************************************
-                
-                # mission_status_array = current_requester.missions.map do |mission|
-                #     mission.title
-                # end 
-
-                # new_status = prompt.select("Choose mission to be updated", mission_status_array)
-
-                # if new_status == new_status
-                #     mission_option_status = ["Ongoing", "Pending", "Fail", "Completed"]
-
-                #     new_status_for_mission = prompt.select("Choose the new status for the mission", mission_option_status)
-
-                #     missioin_new_status_change = Mission.find_by(title: new_status)
-                #     missioin_new_status_change.update(status: new_status_for_mission)
+                else
 
                     
+                    mission_hash_requester = {}
+                    
+                    mission_array_requester = current_requester.missions.map do |mission|
+                        mission.title
+                    end 
 
-                #  end
+                    selected_mission = prompt.select("Choose the mission to see the current status", mission_array_requester)
 
+                    requester_mission_instance = Mission.find_by(title: selected_mission)
+
+                    puts a.asciify("#{requester_mission_instance.status}")
+
+                end
                 
-
+                
             end # Check Status Of My Current Missions. end
 
         end
